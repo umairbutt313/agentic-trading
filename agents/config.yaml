@@ -1,0 +1,132 @@
+# Autonomous Trading Developer System Configuration
+# =================================================
+
+# Watcher Agent Settings
+watcher:
+  # Directory to monitor for trading logs
+  logs_dir: "/root/arslan-chart/agentic-trading-dec2025/stocks/logs"
+
+  # Webhook endpoint for Supervisor Agent
+  webhook_url: "http://localhost:5001/event"
+
+  # Polling interval for file changes (seconds)
+  poll_interval: 1.0
+
+  # Event batching settings
+  batch_size: 10
+  batch_timeout: 5.0  # seconds
+
+  # Retry settings for webhook failures
+  retry_attempts: 3
+  retry_delay: 2.0  # seconds
+
+  # API server settings
+  api_host: "0.0.0.0"
+  api_port: 5000
+
+# Trigger Thresholds
+triggers:
+  # Performance thresholds
+  max_daily_loss_threshold: 50.0  # USD
+  min_win_rate_threshold: 0.40    # 40%
+  win_rate_window: 10              # trades
+  max_drawdown_threshold: 0.05     # 5%
+
+  # Latency thresholds
+  latency_threshold_ms: 500
+
+  # Sentiment thresholds
+  sentiment_change_threshold: 2.0  # Score change to trigger
+
+  # Cooldown settings (prevent event flooding)
+  error_cooldown_seconds: 60
+  performance_cooldown_seconds: 300
+  sentiment_cooldown_seconds: 30
+
+  # Deduplication
+  dedup_window_seconds: 60
+  max_events_per_minute: 30
+
+# Supervisor Agent Settings
+supervisor:
+  # API server settings
+  api_host: "0.0.0.0"
+  api_port: 5001
+
+  # Claude Agent SDK settings
+  model: "claude-sonnet-4-20250514"
+  max_turns: 50
+  permission_mode: "acceptEdits"
+
+  # Memory lookup settings
+  fix_attempt_pattern: "# FIX ATTEMPT \\[.*?\\]"
+  changelog_pattern: "# CHANGELOG:"
+
+  # Files to search for FIX ATTEMPT blocks
+  tracked_files:
+    # Trading system files
+    - "/root/arslan-chart/agentic-trading-dec2025/stocks/trading/position_manager.py"
+    - "/root/arslan-chart/agentic-trading-dec2025/stocks/trading/scalping_strategies.py"
+    - "/root/arslan-chart/agentic-trading-dec2025/stocks/trading/enhanced_scalper.py"
+    - "/root/arslan-chart/agentic-trading-dec2025/stocks/trading/indicator_utils.py"
+    - "/root/arslan-chart/agentic-trading-dec2025/stocks/trading/capital_trader.py"
+    # Agent self-healing files (agents monitor themselves)
+    - "/root/arslan-chart/agentic-trading-dec2025/stocks/agents/supervisor/supervisor_agent.py"
+    - "/root/arslan-chart/agentic-trading-dec2025/stocks/agents/supervisor/api_server.py"
+    - "/root/arslan-chart/agentic-trading-dec2025/stocks/agents/watcher/watcher_service.py"
+    - "/root/arslan-chart/agentic-trading-dec2025/stocks/agents/expert/expert_agent.py"
+
+# Expert Agent Settings
+expert:
+  # Claude Agent SDK settings
+  model: "claude-sonnet-4-20250514"
+  max_turns: 100
+  permission_mode: "acceptEdits"
+
+  # Reasoning settings
+  reasoning_steps: 5
+  max_patch_lines: 50
+
+  # Working directory for code analysis
+  cwd: "/root/arslan-chart/agentic-trading-dec2025/stocks"
+
+  # File read chunk size (Claude Code constraint)
+  max_read_lines: 250
+
+# Improvement Agent Settings
+improvement:
+  # Strategy parameters to tune
+  tunable_parameters:
+    - name: "min_combined_confidence"
+      min: 0.30
+      max: 0.80
+      step: 0.05
+    - name: "atr_multiplier"
+      min: 1.0
+      max: 3.0
+      step: 0.1
+    - name: "min_entry_interval"
+      min: 5
+      max: 60
+      step: 5
+    - name: "trailing_stop_distance"
+      min: 0.10
+      max: 0.60
+      step: 0.05
+    - name: "sentiment_bias_weight"
+      min: 0.0
+      max: 0.30
+      step: 0.05
+
+# Logging Settings
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "/root/arslan-chart/agentic-trading-dec2025/stocks/logs/agents.log"
+
+# Environment Variables (for reference)
+# These should be set in your environment, not in this file
+# ANTHROPIC_API_KEY: Your Anthropic API key
+# SUPERVISOR_WEBHOOK_URL: Override webhook URL for supervisor
+# LOGS_DIR: Override logs directory
+# WATCHER_PORT: Override watcher API port

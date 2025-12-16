@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Data Parsing Test</title>
+</head>
+<body>
+    <h1>CSV Data Parsing Test</h1>
+    <div id="results"></div>
+
+    <script>
+        async function testCSVParsing() {
+            const resultsDiv = document.getElementById('results');
+            const files = ['nvidia_score_price_dump.txt', 'apple_score_price_dump.txt', 'intel_score_price_dump.txt'];
+            
+            for (const file of files) {
+                try {
+                    console.log(`Testing ${file}...`);
+                    const response = await fetch(`/${file}`);
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                    const csvText = await response.text();
+                    const lines = csvText.trim().split('\n');
+                    
+                    resultsDiv.innerHTML += `<h3>${file}</h3>`;
+                    resultsDiv.innerHTML += `<p>Total lines: ${lines.length}</p>`;
+                    
+                    if (lines.length < 2) {
+                        resultsDiv.innerHTML += `<p style="color:red">Error: No data found</p>`;
+                        continue;
+                    }
+                    
+                    const dataLines = lines.slice(1); // Skip header
+                    let validRows = 0;
+                    let invalidRows = 0;
+                    let priceData = [];
+                    let anomalousEntries = [];
+                    
+                    for (const line of dataLines) {
+                        if (!line.trim()) continue; // Skip empty lines
+                        
+                        const parts = line.split(',');
+                        if (parts.length !== 4) {
+                            invalidRows++;
+                            continue;
+                        }
+                        
+                        const [timestamp, score_tradingview, score_sa_news, price] = parts;
+                        
+                        if (!timestamp || !score_tradingview || !score_sa_news || !price) {
+                            invalidRows++;
+                            continue;
+                        }
+                        
+                        // Test timestamp parsing
+                        const date = new Date(timestamp);
+                        if (isNaN(date)) {
+                            invalidRows++;
+                            resultsDiv.innerHTML += `<p style="color:red">Invalid timestamp: ${timestamp}</p>`;
+                            continue;
+                        }
+                        
+                        const time = Math.floor(date.getTime() / 1000);
+                        const priceValue = parseFloat(price);
+                        
+                        // Check for anomalous prices
+                        if (priceValue < 10 || priceValue > 500) {
+                            anomalousEntries.push(`Price: ${priceValue} at ${timestamp}`);
+                        }
+                        
+                        priceData.push({
+                            time: time,
+                            value: priceValue,
+                            timestamp: timestamp
+                        });
+                        
+                        validRows++;
+                    }
+                    
+                    resultsDiv.innerHTML += `<p>Valid rows: ${validRows}</p>`;
+                    resultsDiv.innerHTML += `<p>Invalid rows: ${invalidRows}</p>`;
+                    resultsDiv.innerHTML += `<p>Price data points: ${priceData.length}</p>`;
+                    
+                    if (anomalousEntries.length > 0) {
+                        resultsDiv.innerHTML += `<p style="color:orange">Anomalous entries found:</p>`;
+                        anomalousEntries.forEach(entry => {
+                            resultsDiv.innerHTML += `<p style="color:orange; font-size:0.9em">${entry}</p>`;
+                        });
+                    }
+                    
+                    // Show price range
+                    if (priceData.length > 0) {
+                        const prices = priceData.map(d => d.value);
+                        const minPrice = Math.min(...prices);
+                        const maxPrice = Math.max(...prices);
+                        resultsDiv.innerHTML += `<p>Price range: ${minPrice} - ${maxPrice}</p>`;
+                        
+                        // Show time range
+                        const times = priceData.map(d => d.time);
+                        const minTime = Math.min(...times);
+                        const maxTime = Math.max(...times);
+                        const startDate = new Date(minTime * 1000);
+                        const endDate = new Date(maxTime * 1000);
+                        resultsDiv.innerHTML += `<p>Time range: ${startDate.toISOString()} to ${endDate.toISOString()}</p>`;
+                    }
+                    
+                } catch (error) {
+                    resultsDiv.innerHTML += `<h3 style="color:red">${file} - Error</h3>`;
+                    resultsDiv.innerHTML += `<p style="color:red">${error.message}</p>`;
+                }
+                
+                resultsDiv.innerHTML += '<hr>';
+            }
+        }
+        
+        // Run test when page loads
+        window.onload = testCSVParsing;
+    </script>
+</body>
+</html>

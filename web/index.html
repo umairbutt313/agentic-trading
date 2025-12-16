@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Analysis Dashboard</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .container {
+      text-align: center;
+      max-width: 600px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #2962ff, #26a69a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .subtitle {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      opacity: 0.8;
+    }
+    
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    
+    .dashboard-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    
+    .dashboard-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .card-icon {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    
+    .card-title {
+      font-size: 1.1em;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .card-description {
+      font-size: 0.9em;
+      opacity: 0.7;
+    }
+    
+    .quick-access {
+      margin-top: 30px;
+      padding: 20px;
+      background: rgba(41, 98, 255, 0.1);
+      border-radius: 15px;
+      border: 1px solid rgba(41, 98, 255, 0.3);
+    }
+    
+    .redirect-info {
+      margin: 20px 0;
+      padding: 15px;
+      background: rgba(38, 166, 154, 0.1);
+      border-radius: 10px;
+      border-left: 4px solid #26a69a;
+      font-size: 0.9em;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        margin: 10px;
+        padding: 20px;
+      }
+      
+      h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📊 Stock Analysis Dashboard</h1>
+    <p class="subtitle">Real-time sentiment analysis and market data visualization</p>
+    
+    <div class="dashboard-grid">
+      <a href="nvidia_chart_viewer.html" class="dashboard-card">
+        <div class="card-icon">📈</div>
+        <div class="card-title">NVIDIA Chart</div>
+        <div class="card-description">Interactive sentiment & price analysis</div>
+      </a>
+      
+      <a href="api/data" class="dashboard-card">
+        <div class="card-icon">📊</div>
+        <div class="card-title">Live Data API</div>
+        <div class="card-description">Raw CSV data endpoint</div>
+      </a>
+      
+      <a href="nvidia_score_price_dump.txt" class="dashboard-card">
+        <div class="card-icon">📋</div>
+        <div class="card-title">Data File</div>
+        <div class="card-description">CSV export for download</div>
+      </a>
+    </div>
+    
+    <div class="quick-access">
+      <h3>🚀 Quick Access</h3>
+      <p><strong>Main Chart:</strong> <a href="nvidia_chart_viewer.html" style="color: #26a69a;">nvidia_chart_viewer.html</a></p>
+      <p><strong>Server:</strong> <code>localhost:8080</code></p>
+      <p><strong>Auto-refresh:</strong> Every 30 seconds</p>
+    </div>
+    
+    <div class="redirect-info">
+      <strong>💡 Pro Tip:</strong> Bookmark <code>localhost:8080</code> for instant access to your stock analysis dashboard!
+    </div>
+  </div>
+
+  <script>
+    // Optional: Auto-redirect to main chart after 3 seconds (uncomment if desired)
+    // setTimeout(() => {
+    //   window.location.href = 'nvidia_chart_viewer.html';
+    // }, 3000);
+    
+    // Add some interactive feedback
+    document.querySelectorAll('.dashboard-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 150);
+      });
+    });
+  </script>
+</body>
+</html>

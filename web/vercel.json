@@ -1,0 +1,28 @@
+{
+  "functions": {
+    "api/data.js": {
+      "runtime": "@vercel/node"
+    }
+  },
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/nvidia_chart_viewer.html"
+    },
+    {
+      "src": "/api/data",
+      "dest": "/api/data.js"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ]
+}

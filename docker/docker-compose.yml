@@ -1,0 +1,114 @@
+# Docker Compose Configuration for Stock Sentiment Analysis System
+# Development environment with volume mounts and environment file support
+
+services:
+  # Main application service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+      args:
+        CLEAN_VOLUMES: "true"
+    image: stock-sentiment-analyzer:latest
+    container_name: stock-sentiment-app
+    
+    # Environment configuration
+    env_file:
+      - .env
+    
+    # Volume mounts for development
+    volumes:
+      # Persistent data storage
+      - ./container_output:/app/container_output
+      - ./container_logs:/app/logs
+      
+      # Configuration files (read-only)
+      - ./companies.yaml:/app/companies.yaml:ro
+      
+      # Development: Mount source code for live editing (optional)
+      # Uncomment the following lines for development mode
+      # - ./news:/app/news
+      # - ./utils:/app/utils
+      # - ./scrapers:/app/scrapers
+    
+    # Port mapping (if needed for future API endpoints)
+    ports:
+      - "8000:8000"
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '1.0'
+          memory: 2G
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "/usr/local/bin/docker-entrypoint.sh", "test"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    
+    # Restart policy
+    restart: unless-stopped
+    
+    # Default command (can be overridden) - just keep container running
+    entrypoint: ["/usr/local/bin/docker-entrypoint.sh"]
+    command: ["shell"]
+    
+    # Security settings
+    security_opt:
+      - no-new-privileges:true
+    
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+# Named volumes for production use (optional)
+volumes:
+  output_data:
+    driver: local
+  log_data:
+    driver: local
+
+# Network configuration (optional)
+networks:
+  default:
+    driver: bridge
+
+# ================================
+# Usage Examples
+# ================================
+
+# Start the complete system:
+# docker-compose up -d
+
+# View logs:
+# docker-compose logs -f app
+
+# Run individual components:
+# docker-compose exec app python3 news/tradingview_scraper.py
+# docker-compose exec app python3 news/sentiment_analyzer.py
+
+# Interactive shell:
+# docker-compose exec app bash
+
+# Run with different command:
+# docker-compose run app tradingview
+
+# Stop and remove:
+# docker-compose down
+
+# Rebuild and start:
+# docker-compose up --build
+
+# Production mode with named volumes:
+# docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d

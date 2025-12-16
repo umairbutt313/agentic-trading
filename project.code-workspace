@@ -1,0 +1,15 @@
+{
+
+    "folders": [
+        {
+            "path": "/root/arslan-chart/stocks"
+        },
+        {
+            "path": "/root/arslan-chart/agentic-trading-dec2025/stocks"
+        },
+        {
+            "path": "../../07nov2025/TradingAgents"
+        }
+    ],
+    "settings": {}
+}

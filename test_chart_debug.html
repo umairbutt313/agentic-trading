@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chart Data Debug Test</title>
+</head>
+<body>
+    <h1>Chart Data Debug Test</h1>
+    <div id="output"></div>
+    <script>
+        async function testDataLoading() {
+            const output = document.getElementById('output');
+            
+            try {
+                output.innerHTML += '<h2>Testing NVIDIA data loading...</h2>';
+                
+                // Test data loading
+                const response = await fetch('/nvidia_score_price_dump.txt');
+                const text = await response.text();
+                
+                output.innerHTML += '<h3>Raw CSV Content (first 5 lines):</h3>';
+                const lines = text.trim().split('\n');
+                output.innerHTML += '<pre>' + lines.slice(0, 5).join('\n') + '</pre>';
+                
+                // Test parsing
+                output.innerHTML += '<h3>Parsed Price Data:</h3>';
+                const dataLines = lines.slice(1); // Skip header
+                const priceData = [];
+                
+                for (let i = 0; i < Math.min(5, dataLines.length); i++) {
+                    const line = dataLines[i];
+                    const [timestamp, score_tradingview, score_sa_news, price] = line.split(',');
+                    
+                    // Convert timestamp like in main chart
+                    const date = new Date(timestamp);
+                    const time = Math.floor(date.getTime() / 1000);
+                    
+                    const dataPoint = {
+                        time: time,
+                        value: parseFloat(price),
+                        originalTimestamp: timestamp,
+                        dateObj: date
+                    };
+                    
+                    priceData.push(dataPoint);
+                    
+                    output.innerHTML += '<div>Point ' + (i+1) + ': ' + JSON.stringify(dataPoint, null, 2) + '</div>';
+                }
+                
+                // Check if dates are valid
+                output.innerHTML += '<h3>Date Validation:</h3>';
+                priceData.forEach((point, i) => {
+                    const isValidDate = !isNaN(point.dateObj.getTime());
+                    const isValidTime = point.time > 0;
+                    const isValidPrice = !isNaN(point.value);
+                    
+                    output.innerHTML += '<div>Point ' + (i+1) + ': Date=' + isValidDate + ', Time=' + isValidTime + ', Price=' + isValidPrice + '</div>';
+                });
+                
+            } catch (error) {
+                output.innerHTML += '<div style="color: red;">Error: ' + error.message + '</div>';
+            }
+        }
+        
+        // Run test when page loads
+        testDataLoading();
+    </script>
+</body>
+</html>

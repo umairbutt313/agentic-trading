@@ -1,0 +1,118 @@
+# Company Configuration for Stock Sentiment Analysis
+# This file contains configurations for all supported companies
+# Both NewsAPI queries and Reddit keywords are defined here
+
+companies:
+  nvidia:
+    name: "NVIDIA"
+    symbol: "NVDA"
+    news_weight: 0.4
+    chart_weight: 0.6
+    keywords:
+      - "NVIDIA"
+      - "NVDA"
+      - "nvidia"
+    queries:
+      - "NVIDIA"
+      - "NVDA"
+      - "Nvidia Corporation"
+  
+  # DISABLED: All companies except NVIDIA to reduce NewsAPI rate limit usage
+  # From 7 companies (7 API calls) to 1 company (1 API call) = 85% reduction
+
+  # apple:
+  #   name: "APPLE"
+  #   symbol: "AAPL"
+  #   news_weight: 0.4
+  #   chart_weight: 0.6
+  #   keywords:
+  #     - "APPLE"
+  #     - "AAPL"
+  #     - "apple"
+  #     - "Apple"
+  #   queries:
+  #     - "Apple"
+  #     - "AAPL"
+  #     - "Apple Inc"
+
+  # microsoft:
+  #   name: "MICROSOFT"
+  #   symbol: "MSFT"
+  #   news_weight: 0.4
+  #   chart_weight: 0.6
+  #   keywords:
+  #     - "Microsoft"
+  #     - "MSFT"
+  #     - "microsoft"
+  #   queries:
+  #     - "Microsoft"
+  #     - "MSFT"
+  #     - "Microsoft Corporation"
+
+  # google:
+  #   name: "GOOGLE"
+  #   symbol: "GOOG"
+  #   news_weight: 0.4
+  #   chart_weight: 0.6
+  #   keywords:
+  #     - "Google"
+  #     - "GOOG"
+  #     - "Alphabet"
+  #     - "GOOGL"
+  #   queries:
+  #     - "Google"
+  #     - "GOOG"
+  #     - "Alphabet Inc"
+
+  # amazon:
+  #   name: "AMAZON"
+  #   symbol: "AMZN"
+  #   news_weight: 0.4
+  #   chart_weight: 0.6
+  #   keywords:
+  #     - "Amazon"
+  #     - "AMZN"
+  #     - "amazon"
+  #   queries:
+  #     - "Amazon"
+  #     - "AMZN"
+  #     - "Amazon.com Inc"
+
+  # tesla:
+  #   name: "TESLA"
+  #   symbol: "TSLA"
+  #   news_weight: 0.4
+  #   chart_weight: 0.6
+  #   keywords:
+  #     - "Tesla"
+  #     - "TSLA"
+  #     - "tesla"
+  #   queries:
+  #     - "Tesla"
+  #     - "TSLA"
+  #     - "Tesla Inc"
+
+  # intel:
+  #   name: "INTEL"
+  #   symbol: "INTC"
+  #   news_weight: 0.4
+  #   chart_weight: 0.6
+  #   keywords:
+  #     - "Intel"
+  #     - "INTC"
+  #     - "intel"
+  #   queries:
+  #     - "Intel"
+  #     - "INTC"
+  #     - "Intel Corporation"
+
+# Add more companies below following the same format:
+# company_key:
+#   name: "COMPANY_NAME"
+#   symbol: "TICKER"
+#   keywords:
+#     - "Keyword1"
+#     - "Keyword2"
+#   queries:
+#     - "Query1"
+#     - "Query2"

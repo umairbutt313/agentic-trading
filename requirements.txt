@@ -1,0 +1,17 @@
+transformers
+pandas 
+numpy
+scipy
+yfinance
+torch
+pandas-ta
+selenium
+praw
+schedule
+requests
+aiohttp
+beautifulsoup4
+pyyaml
+python-dotenv
+openai
+aiofiles

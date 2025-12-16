@@ -1,0 +1,12 @@
+{
+  "name": "nvidia-sentiment-chart",
+  "version": "1.0.0",
+  "description": "NVIDIA Sentiment & Price Analysis Dashboard",
+  "main": "nvidia_chart_viewer.html",
+  "scripts": {
+    "dev": "python3 server.py",
+    "deploy": "vercel --prod"
+  },
+  "keywords": ["nvidia", "sentiment", "trading", "chart"],
+  "author": "Stock Analysis System"
+}

@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Analysis Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .chart-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .company-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .company-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+        .metric-label {
+            font-weight: 500;
+        }
+        .metric-value {
+            font-weight: bold;
+        }
+        .price { color: #28a745; }
+        .score-high { color: #28a745; }
+        .score-medium { color: #ffc107; }
+        .score-low { color: #dc3545; }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .chart-container {
+                padding: 10px;
+            }
+            .dashboard {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>📊 Stock Analysis Dashboard</h1>
+        
+        <!-- Summary Cards -->
+        <div class="summary-grid">
+            
+                <div class="company-card" data-company="NVIDIA">
+                    <div class="company-name">NVIDIA</div>
+                    <div class="metric">
+                        <span class="metric-label">💰 Current Price:</span>
+                        <span class="metric-value price">Loading...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">📈 TradingView Score:</span>
+                        <span class="metric-value">Loading...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">📰 News Sentiment:</span>
+                        <span class="metric-value">Loading...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">🖼️ Image Sentiment:</span>
+                        <span class="metric-value">Loading...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">📊 Data Points:</span>
+                        <span class="metric-value">Loading...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">🕐 Last Updated:</span>
+                        <span class="metric-value">Loading...</span>
+                    </div>
+                </div>
+                
+                <div class="company-card" data-company="APPLE">
+                    <div class="company-name">APPLE</div>
+                    <div class="metric">
+                        <span class="metric-label">💰 Current Price:</span>
+                        <span class="metric-value price">Loading...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">📈 TradingView Score:</span>
+                        <span class="metric-value">Loading...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">📰 News Sentiment:</span>
+                        <span class="metric-value">Loading...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">🖼️ Image Sentiment:</span>
+                        <span class="metric-value">Loading...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">📊 Data Points:</span>
+                        <span class="metric-value">Loading...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">🕐 Last Updated:</span>
+                        <span class="metric-value">Loading...</span>
+                    </div>
+                </div>
+                
+                <div class="company-card" data-company="INTEL">
+                    <div class="company-name">INTEL</div>
+                    <div class="metric">
+                        <span class="metric-label">💰 Current Price:</span>
+                        <span class="metric-value price">Loading...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">📈 TradingView Score:</span>
+                        <span class="metric-value">Loading...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">📰 News Sentiment:</span>
+                        <span class="metric-value">Loading...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">🖼️ Image Sentiment:</span>
+                        <span class="metric-value">Loading...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">📊 Data Points:</span>
+                        <span class="metric-value">Loading...</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">🕐 Last Updated:</span>
+                        <span class="metric-value">Loading...</span>
+                    </div>
+                </div>
+                
+        </div>
+        
+        <!-- Price Chart -->
+        <div class="chart-container">
+            <h2>💰 Stock Prices Over Time</h2>
+            <canvas id="priceChart" width="400" height="200"></canvas>
+        </div>
+        
+        <!-- Sentiment Scores Chart -->
+        <div class="chart-container">
+            <h2>📈 Sentiment Scores Over Time</h2>
+            <canvas id="sentimentChart" width="400" height="200"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Company colors
+        const companyColors = {
+            'NVIDIA': '#76B900',
+            'APPLE': '#007AFF', 
+            'INTEL': '#0071C5'
+        };
+
+        // Function to parse CSV data
+        function parseCSV(csvText) {
+            const lines = csvText.trim().split('\n');
+            if (lines.length <= 1) return []; // Only header or empty
+            
+            const data = [];
+            for (let i = 1; i < lines.length; i++) {
+                const columns = lines[i].split(',');
+                if (columns.length >= 5) {
+                    data.push({
+                        timestamp: columns[0],
+                        score_tradingview: parseFloat(columns[1]),
+                        score_sa_news: parseFloat(columns[2]),
+                        score_sa_image: parseFloat(columns[3]),
+                        price: parseFloat(columns[4])
+                    });
+                }
+            }
+            return data;
+        }
+
+        // Function to load data from CSV files
+        async function loadData() {
+            const companies = ['nvidia', 'apple', 'intel'];
+            const allData = {};
+            
+            for (const company of companies) {
+                try {
+                    const response = await fetch(`${company}_score_price_dump.txt`);
+                    const csvText = await response.text();
+                    allData[company] = parseCSV(csvText);
+                } catch (error) {
+                    console.warn(`Failed to load ${company} data:`, error);
+                    allData[company] = [];
+                }
+            }
+            
+            return allData;
+        }
+
+        // Function to create chart datasets from loaded data
+        function createChartData(allData) {
+            const allTimestamps = new Set();
+            
+            // Collect all unique timestamps
+            Object.values(allData).forEach(data => {
+                data.forEach(point => allTimestamps.add(point.timestamp));
+            });
+            
+            const labels = Array.from(allTimestamps).sort();
+            const datasets = [];
+            
+            // Create datasets for each company
+            Object.entries(allData).forEach(([company, data]) => {
+                const companyName = company.toUpperCase();
+                const color = companyColors[companyName];
+                
+                // Create price dataset
+                const priceData = labels.map(timestamp => {
+                    const point = data.find(p => p.timestamp === timestamp);
+                    return point ? point.price : null;
+                });
+                
+                datasets.push({
+                    label: `${companyName} Price`,
+                    data: priceData,
+                    borderColor: color,
+                    backgroundColor: color + '20',
+                    fill: false,
+                    yAxisID: 'price'
+                });
+                
+                // Create sentiment datasets
+                const sentimentTypes = [
+                    { key: 'score_tradingview', label: 'TradingView' },
+                    { key: 'score_sa_news', label: 'News' },
+                    { key: 'score_sa_image', label: 'Image' }
+                ];
+                
+                sentimentTypes.forEach(sentiment => {
+                    const sentimentData = labels.map(timestamp => {
+                        const point = data.find(p => p.timestamp === timestamp);
+                        return point ? point[sentiment.key] : null;
+                    });
+                    
+                    datasets.push({
+                        label: `${companyName} ${sentiment.label}`,
+                        data: sentimentData,
+                        borderColor: color,
+                        backgroundColor: color + '20',
+                        fill: false,
+                        yAxisID: 'score'
+                    });
+                });
+            });
+            
+            return { labels, datasets };
+        }
+
+        // Function to update summary cards
+        function updateSummaryCards(allData) {
+            Object.entries(allData).forEach(([company, data]) => {
+                const companyName = company.toUpperCase();
+                const card = document.querySelector(`[data-company="${companyName}"]`);
+                if (!card) return;
+                
+                const metrics = card.querySelectorAll('.metric-value');
+                
+                if (data.length === 0) {
+                    // No data - show empty state
+                    if (metrics.length >= 6) {
+                        metrics[0].textContent = 'No data';
+                        metrics[1].textContent = 'No data';
+                        metrics[2].textContent = 'No data';
+                        metrics[3].textContent = 'No data';
+                        metrics[4].textContent = '0';
+                        metrics[5].textContent = 'Never';
+                    }
+                    return;
+                }
+                
+                const latest = data[data.length - 1];
+                
+                // Update metrics
+                if (metrics.length >= 6) {
+                    metrics[0].textContent = `$${latest.price.toFixed(2)}`;
+                    metrics[1].textContent = `${latest.score_tradingview}/10`;
+                    metrics[2].textContent = `${latest.score_sa_news}/10`;
+                    metrics[3].textContent = `${latest.score_sa_image}/10`;
+                    metrics[4].textContent = data.length.toString();
+                    metrics[5].textContent = new Date(latest.timestamp).toLocaleString();
+                }
+            });
+        }
+
+        let priceChart, sentimentChart;
+
+        // Initialize charts
+        async function initCharts() {
+            const allData = await loadData();
+            const chartData = createChartData(allData);
+            
+            // Update summary cards
+            updateSummaryCards(allData);
+            
+            // Price Chart
+            const priceCtx = document.getElementById('priceChart').getContext('2d');
+            priceChart = new Chart(priceCtx, {
+                type: 'line',
+                data: {
+                    labels: chartData.labels,
+                    datasets: chartData.datasets.filter(d => d.label.includes('Price'))
+                },
+                options: {
+                    responsive: true,
+                    interaction: {
+                        intersect: false,
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: 'Price ($)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Time'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Stock Price Trends'
+                        }
+                    }
+                }
+            });
+            
+            // Sentiment Chart
+            const sentimentCtx = document.getElementById('sentimentChart').getContext('2d');
+            sentimentChart = new Chart(sentimentCtx, {
+                type: 'line',
+                data: {
+                    labels: chartData.labels,
+                    datasets: chartData.datasets.filter(d => !d.label.includes('Price'))
+                },
+                options: {
+                    responsive: true,
+                    interaction: {
+                        intersect: false,
+                    },
+                    scales: {
+                        y: {
+                            min: 0,
+                            max: 10,
+                            title: {
+                                display: true,
+                                text: 'Sentiment Score (1-10)'  
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Time'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Sentiment Analysis Scores'
+                        }
+                    }
+                }
+            });
+        }
+
+        // Auto-refresh every 30 seconds
+        function startAutoRefresh() {
+            setInterval(async () => {
+                const allData = await loadData();
+                const chartData = createChartData(allData);
+                
+                // Update charts
+                priceChart.data = {
+                    labels: chartData.labels,
+                    datasets: chartData.datasets.filter(d => d.label.includes('Price'))
+                };
+                priceChart.update();
+                
+                sentimentChart.data = {
+                    labels: chartData.labels,
+                    datasets: chartData.datasets.filter(d => !d.label.includes('Price'))
+                };
+                sentimentChart.update();
+                
+                // Update summary cards
+                updateSummaryCards(allData);
+            }, 30000); // 30 seconds
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            initCharts();
+            startAutoRefresh();
+        });
+    </script>
+</body>
+</html>

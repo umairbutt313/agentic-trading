@@ -1,0 +1,147 @@
+# Docker ignore file for Stock Sentiment Analysis System
+# Excludes unnecessary files from Docker build context
+
+# Version control (exclude ALL git files)
+.git/
+.gitignore
+.gitattributes
+.gitmodules
+*.git
+
+# Environment files (will be mounted or passed as env vars)
+.env
+.env.*
+!.env.example
+
+# Output and generated data (will be mounted as volumes)
+Output/
+logs/
+container_logs/
+container_output/
+*.log
+
+# Ensure volume directories are not copied during build
+Output/*
+logs/*
+container_logs/*
+container_output/*
+*.log
+
+# Node.js dependencies (will be installed in container)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+combine-tradingview-sentiment-analysis.json
+final-weighted-scores.json
+final-comprehensive-sentiment-analysis.json
+final-weighted-scores.json
+final-sentiment-analysis.json
+news-sentiment-analysis.json
+raw-tradingview_*
+tradingview-sentiment-*
+server.log
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Documentation and development files
+README.md
+SETUP_AND_TEST.md
+errors.md
+dockerfileplan.md
+*.md
+!CLAUDE.md
+
+# Docker files (avoid recursion)
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Charts and screenshots (generated at runtime)
+chart_screenshots/
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Package manager files
+package-lock.json
+yarn.lock
+Pipfile.lock
+
+# Testing
+.pytest_cache/
+.tox/
+.coverage
+htmlcov/
+.nyc_output
+
+# Misc
+*.bak
+*.orig
+*.rej
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.dll
+*.exe
+*.o
+*.a
+*.la
+*.lo
+*.Plo
+*.Po

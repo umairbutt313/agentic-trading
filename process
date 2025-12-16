@@ -1,0 +1,163 @@
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.1 168028  6008 ?        Ss   Aug08   0:59 /sbin/init
+root           2  0.0  0.0      0     0 ?        S    Aug08   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        I<   Aug08   0:00 [rcu_gp]
+root           4  0.0  0.0      0     0 ?        I<   Aug08   0:00 [rcu_par_gp]
+root           5  0.0  0.0      0     0 ?        I<   Aug08   0:00 [slub_flushwq]
+root           6  0.0  0.0      0     0 ?        I<   Aug08   0:00 [netns]
+root           8  0.0  0.0      0     0 ?        I<   Aug08   0:00 [kworker/0:0H-events_highpri]
+root          10  0.0  0.0      0     0 ?        I<   Aug08   0:00 [mm_percpu_wq]
+root          11  0.0  0.0      0     0 ?        I    Aug08   0:00 [rcu_tasks_kthread]
+root          12  0.0  0.0      0     0 ?        I    Aug08   0:00 [rcu_tasks_rude_kthread]
+root          13  0.0  0.0      0     0 ?        I    Aug08   0:00 [rcu_tasks_trace_kthread]
+root          14  0.0  0.0      0     0 ?        S    Aug08   0:44 [ksoftirqd/0]
+root          15  0.0  0.0      0     0 ?        I    Aug08   3:05 [rcu_preempt]
+root          16  0.0  0.0      0     0 ?        S    Aug08   0:13 [migration/0]
+root          18  0.0  0.0      0     0 ?        S    Aug08   0:00 [cpuhp/0]
+root          19  0.0  0.0      0     0 ?        S    Aug08   0:00 [cpuhp/1]
+root          20  0.0  0.0      0     0 ?        S    Aug08   0:12 [migration/1]
+root          21  0.0  0.0      0     0 ?        S    Aug08   0:20 [ksoftirqd/1]
+root          26  0.0  0.0      0     0 ?        S    Aug08   0:00 [kdevtmpfs]
+root          27  0.0  0.0      0     0 ?        I<   Aug08   0:00 [inet_frag_wq]
+root          28  0.0  0.0      0     0 ?        S    Aug08   0:00 [kauditd]
+root          30  0.0  0.0      0     0 ?        S    Aug08   0:00 [khungtaskd]
+root          31  0.0  0.0      0     0 ?        S    Aug08   0:00 [oom_reaper]
+root          33  0.0  0.0      0     0 ?        I<   Aug08   0:00 [writeback]
+root          34  0.0  0.0      0     0 ?        S    Aug08   3:17 [kcompactd0]
+root          35  0.0  0.0      0     0 ?        SN   Aug08   0:00 [ksmd]
+root          38  0.0  0.0      0     0 ?        SN   Aug08   0:39 [khugepaged]
+root          39  0.0  0.0      0     0 ?        I<   Aug08   0:00 [kintegrityd]
+root          40  0.0  0.0      0     0 ?        I<   Aug08   0:00 [kblockd]
+root          41  0.0  0.0      0     0 ?        I<   Aug08   0:00 [blkcg_punt_bio]
+root          42  0.0  0.0      0     0 ?        I<   Aug08   0:00 [tpm_dev_wq]
+root          43  0.0  0.0      0     0 ?        I<   Aug08   0:00 [edac-poller]
+root          44  0.0  0.0      0     0 ?        I<   Aug08   0:00 [devfreq_wq]
+root          45  0.0  0.0      0     0 ?        I<   Aug08   0:00 [kworker/1:1H-kblockd]
+root          46  0.0  0.0      0     0 ?        S    Aug08   1:26 [kswapd0]
+root          52  0.0  0.0      0     0 ?        I<   Aug08   0:00 [kthrotld]
+root          54  0.0  0.0      0     0 ?        I<   Aug08   0:00 [acpi_thermal_pm]
+root          56  0.0  0.0      0     0 ?        I<   Aug08   0:00 [mld]
+root          57  0.0  0.0      0     0 ?        I<   Aug08   0:00 [ipv6_addrconf]
+root          62  0.0  0.0      0     0 ?        I<   Aug08   0:00 [kstrp]
+root          67  0.0  0.0      0     0 ?        I<   Aug08   0:00 [zswap-shrink]
+root          68  0.0  0.0      0     0 ?        I<   Aug08   0:00 [kworker/u257:0]
+root         133  0.0  0.0      0     0 ?        I<   Aug08   0:20 [kworker/0:1H-kblockd]
+root         136  0.0  0.0      0     0 ?        I<   Aug08   0:00 [ata_sff]
+root         138  0.0  0.0      0     0 ?        S    Aug08   0:00 [scsi_eh_0]
+root         140  0.0  0.0      0     0 ?        I<   Aug08   0:00 [scsi_tmf_0]
+root         141  0.0  0.0      0     0 ?        S    Aug08   0:00 [scsi_eh_1]
+root         142  0.0  0.0      0     0 ?        I<   Aug08   0:00 [scsi_tmf_1]
+root         143  0.0  0.0      0     0 ?        S    Aug08   0:00 [scsi_eh_2]
+root         144  0.0  0.0      0     0 ?        I<   Aug08   0:00 [scsi_tmf_2]
+root         145  0.0  0.0      0     0 ?        S    Aug08   0:00 [scsi_eh_3]
+root         146  0.0  0.0      0     0 ?        I<   Aug08   0:00 [scsi_tmf_3]
+root         147  0.0  0.0      0     0 ?        S    Aug08   0:00 [scsi_eh_4]
+root         148  0.0  0.0      0     0 ?        I<   Aug08   0:00 [scsi_tmf_4]
+root         149  0.0  0.0      0     0 ?        S    Aug08   0:00 [scsi_eh_5]
+root         150  0.0  0.0      0     0 ?        I<   Aug08   0:00 [scsi_tmf_5]
+root         151  0.0  0.0      0     0 ?        S    Aug08   0:00 [scsi_eh_6]
+root         152  0.0  0.0      0     0 ?        I<   Aug08   0:00 [scsi_tmf_6]
+root         153  0.0  0.0      0     0 ?        S    Aug08   0:00 [scsi_eh_7]
+root         154  0.0  0.0      0     0 ?        I<   Aug08   0:00 [scsi_tmf_7]
+root         160  0.0  0.0      0     0 ?        S    Aug08   0:00 [scsi_eh_8]
+root         161  0.0  0.0      0     0 ?        I<   Aug08   0:00 [scsi_tmf_8]
+root         162  0.0  0.0      0     0 ?        S    Aug08   0:00 [scsi_eh_9]
+root         163  0.0  0.0      0     0 ?        I<   Aug08   0:00 [scsi_tmf_9]
+root         164  0.0  0.0      0     0 ?        S    Aug08   0:00 [scsi_eh_10]
+root         165  0.0  0.0      0     0 ?        I<   Aug08   0:00 [scsi_tmf_10]
+root         166  0.0  0.0      0     0 ?        S    Aug08   0:00 [scsi_eh_11]
+root         167  0.0  0.0      0     0 ?        I<   Aug08   0:00 [scsi_tmf_11]
+root         175  0.0  0.0      0     0 ?        I<   Aug08   0:06 [kworker/1:2H-kblockd]
+root         197  0.0  0.0      0     0 ?        I<   Aug08   0:00 [xfsalloc]
+root         198  0.0  0.0      0     0 ?        I<   Aug08   0:00 [xfs_mru_cache]
+root         199  0.0  0.0      0     0 ?        I<   Aug08   0:00 [xfs-buf/vda3]
+root         200  0.0  0.0      0     0 ?        I<   Aug08   0:00 [xfs-conv/vda3]
+root         201  0.0  0.0      0     0 ?        I<   Aug08   0:00 [xfs-reclaim/vda]
+root         202  0.0  0.0      0     0 ?        I<   Aug08   0:00 [xfs-blockgc/vda]
+root         203  0.0  0.0      0     0 ?        I<   Aug08   0:00 [xfs-inodegc/vda]
+root         204  0.0  0.0      0     0 ?        I<   Aug08   0:00 [xfs-log/vda3]
+root         205  0.0  0.0      0     0 ?        I<   Aug08   0:00 [xfs-cil/vda3]
+root         206  0.0  0.0      0     0 ?        S    Aug08  10:33 [xfsaild/vda3]
+root         267  0.0  0.3 176368 14724 ?        Ss   Aug08   5:39 /lib/systemd/systemd-journald
+root         285  0.0  0.0  26452   696 ?        Ss   Aug08   0:03 /lib/systemd/systemd-udevd
+root         349  0.0  0.0      0     0 ?        I<   Aug08   0:00 [cryptd]
+root         451  0.0  0.0      0     0 ?        I<   Aug08   0:00 [nfit]
+avahi        849  0.0  0.0   7024   408 ?        Ss   Aug08   0:07 avahi-daemon: running [uab.local]
+root         851  0.0  0.0   6612   244 ?        Ss   Aug08   0:04 /usr/sbin/cron -f
+message+     852  0.0  0.0   8152   596 ?        Ss   Aug08   0:01 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+avahi        854  0.0  0.0   6892   212 ?        S    Aug08   0:00 avahi-daemon: chroot helper
+root         859  0.0  0.0  17028  3460 ?        Ss   Aug08   0:04 /lib/systemd/systemd-logind
+root         862  0.0  0.0   5876    48 tty1     Ss+  Aug08   0:00 /sbin/agetty -o -p -- \u --noclear - linux
+root         863  0.0  0.0   5500    56 ttyS0    Ss+  Aug08   0:00 /sbin/agetty -o -p -- \u --keep-baud 115200,57600,38400,9600 - vt220
+root         867  0.0  0.4 1802068 17040 ?       Ssl  Aug08  35:28 /usr/bin/containerd
+root         871  0.0  0.0  11572  1380 ?        Ss   Aug08   0:00 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+root         873  0.0  0.0  15444  2168 ?        Ss   Aug08   2:42 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+root         883  0.0  0.5 1975104 21128 ?       Ssl  Aug08   5:07 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+root      256387  0.0  0.0 307520   556 ?        Ssl  Aug23   0:00 /usr/libexec/upowerd
+root      257766  0.0  0.0      0     0 ?        I<   Aug23   0:00 [tls-strp]
+root      337867  0.0  0.0  19080  1160 ?        Ss   Aug23   0:00 /lib/systemd/systemd --user
+root      337868  0.0  0.0 168484   672 ?        S    Aug23   0:00 (sd-pam)
+root      339054  0.0  0.0   7880   408 ?        Ss   Aug23   0:00 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root      339077  0.0  0.0 311028   152 ?        Ssl  Aug23   0:00 /usr/libexec/at-spi-bus-launcher
+root      763072  0.0  0.0   6936     4 ?        S    Aug25   0:00 /bin/bash -c -l source /root/.claude/shell-snapshots/snapshot-bash-1756155334856-ssx1rl.sh && eval 'cd /root/arslan-chart/stocks && python3 -m http.server 8082 > /dev/null 2>&1 &' \< /dev/null && pwd -P >| /tmp/claude-747b-cwd
+root      763074  0.0  0.2 1201584 9972 ?        Sl   Aug25   2:16 python3 -m http.server 8082
+root      769456  0.0  0.1 249536  6096 ?        S    Aug25   2:10 python3 -m http.server 8081
+root      802309  0.0  0.0  28352  3768 ?        S    Aug25   2:08 python3 -m http.server 8083 --bind 127.0.0.1
+root      922725  0.0  0.0  80376   424 ?        Ssl  Aug28   0:00 /usr/sbin/qemu-ga
+root      932852  0.0  0.0 212188   224 ?        Ss   Aug28   0:00 /usr/bin/python3 /usr/bin/glances -s -B 127.0.0.1
+www-data 1020504  0.0  0.1  11760  4028 ?        S    12:09   0:00 nginx: worker process
+www-data 1020505  0.0  0.1  11760  5880 ?        S    12:09   0:00 nginx: worker process
+root     1088173  0.0  0.3 103980 12360 ?        Ssl  13:47   0:10 /usr/bin/python3 /root/arslan-chart/stocks/web/server.py
+root     1090377  0.0  0.0  17688  1108 ?        Ss   13:51   0:00 sshd: root@pts/0
+root     1090424  0.0  0.0   7320   264 pts/0    Ss+  13:51   0:00 -bash
+root     1090439  0.0  0.0  17688  1260 ?        Ss   13:51   0:01 sshd: root@pts/4
+root     1090453  0.0  0.0   7332   300 pts/4    Ss+  13:51   0:00 -bash
+root     1213144  0.3  0.4 989092 19256 ?        Sl   17:17   0:08 /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/node /root/.cursor-server/bin/multiplex-server/45e440a0fc5a5d12380c7a83a49ab82c55f715a5d60292da31f8d75730a9ee15.js 1c243d84-4360-4318-80ee-e4040195e833
+root     1213583  0.0  0.0      0     0 ?        I    17:17   0:01 [kworker/1:1-xfs-buf/vda3]
+root     1214661  0.0  0.0   7460  3060 ?        Ss   17:20   0:00 bash
+root     1214753  0.0  0.0   2580   564 ?        S    17:20   0:00 sh /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/bin/cursor-server --start-server --host=127.0.0.1 --port 0 --connection-token-file /run/user/0/cursor-remote-code.token.6ca0869f6193ac0d40fa6ae74ed01260 --telemetry-level off --enable-remote-auto-shutdown --accept-server-license-terms
+root     1214763  2.5  4.1 11908144 166120 ?     Sl   17:20   0:51 /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/node /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/out/server-main.js --start-server --host=127.0.0.1 --port 0 --connection-token-file /run/user/0/cursor-remote-code.token.6ca0869f6193ac0d40fa6ae74ed01260 --telemetry-level off --enable-remote-auto-shutdown --accept-server-license-terms
+root     1214795  0.6  0.1  18088  6804 ?        Ss   17:20   0:13 sshd: root@notty
+root     1214804  0.0  0.0   7460  3468 ?        Ss   17:20   0:00 bash
+root     1214926  9.9  7.2 75880952 287356 ?     Sl   17:20   3:19 /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/node --dns-result-order=ipv4first /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/out/bootstrap-fork --type=extensionHost --transformURIs --useHostProxy=false
+root     1214942  0.3  1.2 11922880 49664 ?      Sl   17:20   0:07 /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/node /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/out/bootstrap-fork --type=fileWatcher
+root     1214962  1.0  1.1 11540568 45756 ?      Sl   17:20   0:21 /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/node /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/out/bootstrap-fork --type=ptyHost --logsPath /root/.cursor-server/data/logs/20250902T172007
+root     1214981  0.0  0.0   7464  3312 pts/2    Ss   17:20   0:00 /bin/bash --init-file /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh
+root     1215077  0.2  1.3 961964 52356 ?        Sl   17:20   0:05 npm exec @upstash/context7-mcp
+root     1215100 21.8 12.5 32763336 496668 pts/2 Sl+  17:20   7:13 claude
+root     1215134  0.0  1.4 1027988 56060 ?       Sl   17:20   0:01 /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/node /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/extensions/json-language-features/server/dist/node/jsonServerMain --node-ipc --clientProcessId=1214926
+root     1215149  0.2  1.4 961612 55724 pts/2    Sl+  17:20   0:05 npm exec @modelcontextprotocol/server-sequential-thinking
+root     1215150  0.2  1.3 962348 53908 pts/2    Sl+  17:20   0:05 npm exec @playwright/mcp@latest
+root     1215231  0.0  0.0   2580   580 ?        S    17:20   0:00 sh -c context7-mcp
+root     1215232  0.0  0.5 21622048 23404 ?      Sl   17:20   0:00 node /root/.npm/_npx/eea2bd7412d4593b/node_modules/.bin/context7-mcp
+root     1215244  0.0  0.9 938392 36292 ?        Sl   17:20   0:01 npm exec task-master-ai
+root     1215321  0.0  0.0   2580   652 ?        S    17:20   0:00 sh -c task-master-ai
+root     1215324  0.1  0.9 32171080 37952 ?      Sl   17:20   0:02 node /root/.npm/_npx/0726791833487271/node_modules/.bin/task-master-ai
+root     1215342  0.0  0.0   2580   576 pts/2    S+   17:20   0:00 sh -c mcp-server-sequential-thinking
+root     1215343  0.0  0.4 631532 19364 pts/2    Sl+  17:20   0:00 node /root/.npm/_npx/de2bd410102f5eda/node_modules/.bin/mcp-server-sequential-thinking
+root     1215363  0.0  0.0   2580   620 pts/2    S+   17:20   0:00 sh -c mcp-server-playwright
+root     1215369  0.0  0.7 11167608 28964 pts/2  Sl+  17:20   0:01 node /root/.npm/_npx/9833c18b2d85bc59/node_modules/.bin/mcp-server-playwright
+root     1215452  0.2  1.3 961536 51968 ?        Sl   17:20   0:04 npm exec @modelcontextprotocol/server-sequential-thinking
+root     1215491  0.0  0.0   2580   572 ?        S    17:20   0:00 sh -c mcp-server-sequential-thinking
+root     1215492  0.0  0.4 631084 19168 ?        Sl   17:20   0:00 node /root/.npm/_npx/de2bd410102f5eda/node_modules/.bin/mcp-server-sequential-thinking
+root     1215503  0.2  1.5 962924 61656 ?        Sl   17:20   0:04 npm exec @sylweriusz/mcp-neo4j-memory-server
+root     1215543  0.0  0.0   2580   656 ?        S    17:20   0:00 sh -c mcp-neo4j-memory-server
+root     1215544  0.0  0.8 11197832 34940 ?      Sl   17:20   0:00 node /root/.npm/_npx/11829ba14f229621/node_modules/.bin/mcp-neo4j-memory-server
+root     1215876  1.1  2.8 1087900 112892 ?      Sl   17:21   0:22 /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/node /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/extensions/html-language-features/server/dist/node/htmlServerMain --node-ipc --clientProcessId=1214926
+root     1216646  0.2  3.5 1668184 140088 ?      Sl   17:22   0:05 /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/node --max-old-space-size=3072 /root/.cursor-server/extensions/anysphere.cursorpyright-1.0.9/dist/server.js --cancellationReceive=file:b9ed190769c6ea441109f43e19481a84616eacb476 --node-ipc --clientProcessId=1214926
+root     1217510  0.0  0.8 996256 33672 ?        Sl   17:23   0:00 /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/node /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/extensions/markdown-language-features/dist/serverWorkerMain --node-ipc --clientProcessId=1214926
+root     1218608  0.0  0.1  17688  7232 ?        Ss   17:24   0:00 sshd: root@pts/3
+root     1218623  0.0  0.0   7320  3608 pts/3    Ss   17:24   0:00 -bash
+root     1220817  0.0  1.5 1025300 60484 ?       Sl   17:28   0:00 tsserver[5.8.2]: syntax
+root     1220818  0.0  1.5 1025304 62680 ?       Sl   17:28   0:00 tsserver[5.8.2]: semantic
+root     1220831  0.0  1.5 1024712 61260 ?       Sl   17:28   0:00 /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/node /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/extensions/node_modules/typescript/lib/typingsInstaller.js --globalTypingsCacheLocation /root/.cache/typescript/5.8 --enableTelemetry --typesMapLocation /root/.cursor-server/bin/de327274300c6f38ec9f4240d11e82c3b0660b20/extensions/node_modules/typescript/lib/typesMap.json --validateDefaultNpmLocation
+root     1221772  0.0  0.0      0     0 ?        I    17:29   0:00 [kworker/u256:1-events_unbound]
+root     1227165  0.0  0.0      0     0 ?        I    17:35   0:00 [kworker/0:1-events]
+root     1233186  0.0  0.0      0     0 ?        I    17:44   0:00 [kworker/u256:2-events_unbound]
+root     1234962  0.0  0.0      0     0 ?        I    17:46   0:00 [kworker/1:0-xfs-buf/vda3]
+root     1235549  0.0  0.0      0     0 ?        I    17:47   0:00 [kworker/0:0-events_freezable]
+root     1236809  0.0  0.0      0     0 ?        I    17:49   0:00 [kworker/u256:0-events_unbound]
+root     1238875  0.0  0.0      0     0 ?        I    17:52   0:00 [kworker/0:2-events]
+root     1239607  0.0  0.0   5468   904 ?        S    17:53   0:00 sleep 10
+root     1239641  0.0  0.0   5468   916 ?        S    17:53   0:00 sleep 10
+root     1239684  0.0  0.1  11152  4692 pts/3    R+   17:53   0:00 ps aux

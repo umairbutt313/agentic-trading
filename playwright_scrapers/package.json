@@ -1,0 +1,34 @@
+{
+  "name": "playwright-tradingview-scraper",
+  "version": "1.0.0",
+  "description": "Enhanced TradingView scraper using Playwright with improved data extraction",
+  "main": "modules/tradingview_playwright.js",
+  "scripts": {
+    "test": "node modules/tradingview_playwright.js",
+    "test-basic": "node modules/test_basic.js",
+    "enhanced": "node modules/enhanced_tradingview_playwright.js",
+    "production": "node modules/production_ohlc_extractor.js",
+    "postinstall": "echo 'Playwright browsers will be installed separately'",
+    "install-browsers": "npx playwright install",
+    "debug": "DEBUG=pw:api node modules/tradingview_playwright.js"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "js-yaml": "^4.1.0",
+    "moment": "^2.30.1",
+    "playwright": "^1.40.0",
+    "user-agents": "^1.0.1383"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  },
+  "keywords": [
+    "playwright",
+    "tradingview",
+    "scraping",
+    "financial-data",
+    "stock-analysis"
+  ],
+  "author": "Financial Data Scraper",
+  "license": "MIT"
+}
